@@ -1,0 +1,42 @@
+# === Java / Spring Boot ===
+backend/target/
+backend/data/
+backend/*.jar
+backend/*.war
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+
+# === Node / React ===
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+
+# === IDE ===
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Logs ===
+*.log
+logs/
+
+# === Environment / Secrets ===
+.env
+.env.local
+.env.*.local
+
+# === Build ===
+*.class
+*.jar
+*.war
+*.ear
