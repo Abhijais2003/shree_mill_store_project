@@ -1,6 +1,6 @@
 -- Categories (Belt, Polisher, Pattar, etc.)
 CREATE TABLE category (
-    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name        VARCHAR(100) NOT NULL UNIQUE,
     description VARCHAR(500),
     created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -9,7 +9,7 @@ CREATE TABLE category (
 
 -- Brands (Fenner, Goodyear, etc.)
 CREATE TABLE brand (
-    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id         BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name       VARCHAR(100) NOT NULL UNIQUE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -17,7 +17,7 @@ CREATE TABLE brand (
 
 -- Products (generic: belts now, other machinery later)
 CREATE TABLE product (
-    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name        VARCHAR(255) NOT NULL,
     category_id BIGINT NOT NULL,
     type        VARCHAR(100) NOT NULL,
@@ -41,13 +41,13 @@ CREATE INDEX idx_product_type ON product(type);
 
 -- Activity log
 CREATE TABLE activity_log (
-    id           BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id           BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     product_id   BIGINT,
     product_name VARCHAR(255),
     action       VARCHAR(50) NOT NULL,
     details      VARCHAR(1000),
-    old_value    CLOB,
-    new_value    CLOB,
+    old_value    TEXT,
+    new_value    TEXT,
     created_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 

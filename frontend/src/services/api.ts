@@ -3,7 +3,8 @@ import type {
   Category, Brand, ActivityLog, OcrResult, DashboardStats, Page,
 } from '../types';
 
-const BASE = '/api/v1';
+const API_URL = import.meta.env.VITE_API_URL || '';
+const BASE = `${API_URL}/api/v1`;
 
 async function request<T>(url: string, options?: RequestInit): Promise<T> {
   const res = await fetch(url, {

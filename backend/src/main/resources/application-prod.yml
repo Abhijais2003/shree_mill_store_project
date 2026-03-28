@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: ${DATABASE_URL}
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/flourmill}
     driver-class-name: org.postgresql.Driver
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:}
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
@@ -17,6 +17,9 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 
+server:
+  port: ${PORT:8080}
+
 ocr:
-  tessdata-path: /usr/share/tesseract-ocr/4.00/tessdata
+  tessdata-path: /usr/share/tesseract-ocr/5/tessdata
   language: eng
